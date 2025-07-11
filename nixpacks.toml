@@ -1,5 +1,11 @@
 [phases.setup]
-nixPkgs = ['php82', 'php82Packages.composer', 'nginx', 'nodejs_18', 'libmysqlclient']
+nixPkgs = [
+  'php82',
+  'php82Packages.composer',
+  'nginx',
+  'nodejs_18',
+  'libmysqlclient'
+]
 
 [phases.install]
 cmds = [
@@ -8,7 +14,9 @@ cmds = [
 ]
 
 [phases.build]
-cmds = ['npm run build']
+cmds = [
+  'npm run build'
+]
 
 [start]
 cmd = '''
