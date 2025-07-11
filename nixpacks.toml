@@ -1,0 +1,20 @@
+[phases.setup]
+nixPkgs = ['php82', 'php82Packages.composer', 'nginx', 'nodejs_18', 'libmysqlclient']
+
+[phases.install]
+cmds = [
+  'composer install --no-interaction --prefer-dist --optimize-autoloader',
+  'npm install'
+]
+
+[phases.build]
+cmds = ['npm run build']
+
+[start]
+cmd = '''
+php artisan config:cache && \
+php artisan route:cache && \
+php artisan view:cache && \
+php artisan migrate --force && \
+php -S 0.0.0.0:$PORT -t public
+'''
