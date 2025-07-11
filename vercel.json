@@ -1,12 +1,11 @@
 {
     "version": 2,
-    "framework": null,
     "functions": {
-        "routes/api.php": { "runtime": "vercel-php@0.6.0" }
+        "api/index.php": { "runtime": "vercel-php@0.6.0" }
     },
     "routes": [
         { "src": "/build/(.*)", "dest": "/public/build/" },
-        { "src": "/(.*)", "dest": "routes/api.php" }
+        { "src": "/(.*)", "dest": "api/index.php" }
     ],
     "public": true,
     "buildCommand": "vite build",
